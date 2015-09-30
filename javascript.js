@@ -18,10 +18,16 @@ var sandwichControllerFunc = function($scope) {
 		$scope.sandwiches.splice(index, 1)
 	}
 
+	$scope.removeIngredient = function(index) {
+		$scope.ingredients.splice(index, 1)
+	}
+
 	$scope.ingredients = []
 	$scope.add = function() {
-        $scope.ingredients.push($scope.ingredientName);
-        $scope.ingredientName = '';
+	    if ($scope.ingredientName) {    
+	        $scope.ingredients.push($scope.ingredientName);
+	        $scope.ingredientName = '';
+	    }
     };
 
 

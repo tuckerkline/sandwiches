@@ -1,33 +1,46 @@
-/*
-body {
-	background-image: url("https://pixabay.com/get/7150a42d0f3fd3f3b23f/1443630776/sandwich-677696.jpg?direct");
-}
-
-.jumbotron {
-	opacity: 0.8;
-}
-
-.mainForm {
-	opacity: 0.8;
-}*/
 
 .logo {
-	background-color: #487F35;
+	background-color: #31A0D3;
 	color: white;
-	padding: 4px 8px 4px 8px;
+	padding: 1px 8px 1px 8px;
 	font-family: "courier";
 	border-radius: 5px;
 	vertical-align: middle;
+	display: inline-block;
 }
 
 .x {
 	border-radius: 5px;
 	color: white;
-	background-color: pink;
+	background-color: #D32215;
 	border: none;
-	padding: 2px 7px 4px 8px;
+	padding: 5px;
 }
 
 * {
 	list-style-type: none;
+}
+
+.sandwichIcon {
+	height: 55px; 
+	vertical-align: top;
+	text-align: right;	
+}
+
+.champ {
+	text-align: center;
+
+}
+
+.champPhoto {
+	border-radius: 20px;
+	opacity: 0.8;
+	border: 1px;
+
+}
+
+
+.sandwichClass {
+	padding-top: 0px;
+	float: left;
 }
