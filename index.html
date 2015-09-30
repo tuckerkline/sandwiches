@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html ng-app = "sandwichApp">
 <head>
-	<title>Sandwiches</title>
+	<title>The Social Sandwich</title>
 	<link rel="stylesheet" type="text/css" href="stylesheet.css">
 	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.5/angular.min.js"></script>
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
@@ -19,6 +19,9 @@
 
        <a class="sandwichClass" href="index.html">
         <div><img class = "sandwichIcon" src="sandwichlogo.png"></div>
+      </a>
+      <a class="sandwichClass" href="champion.html">
+        <div><img class = "trophy" src="trophy.png"></div>
       </a>
     </div>
   </div>
@@ -43,7 +46,7 @@
  
   <button class = "btn btn-default" ng-click="add()">Add</button>
 </form>
-<hr>
+
   <ul ng-repeat = "ingredient in ingredients track by $index" class = 'sandwichList'>
   <li class = 'sandwichList'> {{$index + 1 }}. {{ ingredient }} <button ng-click="removeIngredient($index)">x</button></li>
   </ul>
@@ -60,7 +63,7 @@
 
 <hr>
 
-<ul ng-repeat = "(sandwichIndex, sandwich) in sandwiches track by sandwichIndex">
+<ul ng-repeat = "(sandwichIndex, sandwich) in sandwiches | orderBy: 'name'">
 <li> <h3> {{sandwich.name}} </h3>  <br>
 Ingredients: 
 <ul ng-repeat = "(ingredientIndex, ingredient) in sandwich.ingredients track by ingredientIndex">
@@ -68,7 +71,7 @@ Ingredients:
 </ul>
 <br>
 Recipe:  {{sandwich.recipe}} <br>
-<button ng-click="delete($index)" class="x">delete</button>
+<button ng-click="delete($index)" class="x"><i class="fa fa-trash"></i></button>
 <br>
 <br>
 <strong>Comments:</strong>
@@ -77,6 +80,9 @@ Recipe:  {{sandwich.recipe}} <br>
 <li> {{comment}} </li>
 <hr>
 </ul>
+
+
+
 <form>
 <textarea class="form-control" rows="3" placeholder="Comments..." ng-model = "sandwich.addedComment"></textarea>
 <button ng-click="addComment(sandwichIndex)">Add your thoughts</button>

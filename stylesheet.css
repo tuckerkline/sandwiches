@@ -1,13 +1,24 @@
 
 .logo {
-	background-color: #31A0D3;
+	background-color: #B86C0A;
 	color: white;
-	padding: 1px 8px 1px 8px;
-	font-family: "courier";
+	padding: 3px 8px 3px 8px;
+	font-family: "Arial";
 	border-radius: 5px;
 	vertical-align: middle;
 	display: inline-block;
+	font-weight: bold;
 }
+
+.bigSandwich {
+	float: right;
+}
+@media only screen and (max-width: 1200px) {
+    .bigSandwich {
+        width: 50%;
+    }
+}
+
 
 .x {
 	border-radius: 5px;
@@ -41,6 +52,23 @@
 
 
 .sandwichClass {
+	padding-left: 30px;
 	padding-top: 0px;
 	float: left;
+}
+
+.trophy {
+	height: 48px;
+	padding-top: 5px;
+	padding-left: 12px;
+}
+
+.sethParent {
+	text-align: center;
+}
+.seth {
+
+	height: 200px;
+	border-radius: 100px;
+	opacity: 0.9;
 }
