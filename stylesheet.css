@@ -1,0 +1,33 @@
+/*
+body {
+	background-image: url("https://pixabay.com/get/7150a42d0f3fd3f3b23f/1443630776/sandwich-677696.jpg?direct");
+}
+
+.jumbotron {
+	opacity: 0.8;
+}
+
+.mainForm {
+	opacity: 0.8;
+}*/
+
+.logo {
+	background-color: #487F35;
+	color: white;
+	padding: 4px 8px 4px 8px;
+	font-family: "courier";
+	border-radius: 5px;
+	vertical-align: middle;
+}
+
+.x {
+	border-radius: 5px;
+	color: white;
+	background-color: pink;
+	border: none;
+	padding: 2px 7px 4px 8px;
+}
+
+* {
+	list-style-type: none;
+}
