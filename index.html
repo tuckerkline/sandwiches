@@ -18,10 +18,10 @@
       </a>
 
        <a class="sandwichClass" href="index.html">
-        <div><img class = "sandwichIcon" src="sandwichlogo.png"></div>
+        <div><img class = "sandwichIcon" src="images/sandwichlogo.png"></div>
       </a>
       <a class="sandwichClass" href="champion.html">
-        <div><img class = "trophy" src="trophy.png"></div>
+        <div><img class = "trophy" src="images/trophy.png"></div>
       </a>
     </div>
   </div>
@@ -67,7 +67,7 @@
 <li> <h3> {{sandwich.name}} </h3>  <br>
 Ingredients: 
 <ul ng-repeat = "(ingredientIndex, ingredient) in sandwich.ingredients track by ingredientIndex">
-<li> -{{ ingredient }} </li>
+<a href=# ng-click="ingredientSelect(ingredientIndex, sandwichIndex)"><li> -{{ ingredient }} </li></a>
 </ul>
 <br>
 Recipe:  {{sandwich.recipe}} <br>
@@ -77,7 +77,7 @@ Recipe:  {{sandwich.recipe}} <br>
 <strong>Comments:</strong>
 <hr>
 <ul ng-repeat = "(commentIndex, comment) in sandwich.comments track by commentIndex">
-<li> {{comment}} </li>
+<div style="display: inline-block"><img class="avatar" src="images/avatar.jpg"></div><li> {{comment}} </li>
 <hr>
 </ul>
 
@@ -90,6 +90,21 @@ Recipe:  {{sandwich.recipe}} <br>
 </li>
 </ul>
 
+<div ng-show = "showByIngredient" class = "sandwichPopup">
+ All sandwiches with {{ selectedIngredientName }}: <br>
+ <ul ng-repeat = "sis in selectedIngredientSandwiches">
+ <li> {{ sis.name }} <br>
+ {{sis.ingredients}} <br>
+ {{sis.recipe}}
+ </li>
+ </ul>
+
+<button ng-click = "close()">x</button>
+</div>
+
+
+
+
 
 <footer class = "footer"> 
 <div class="container">
@@ -98,10 +113,6 @@ Recipe:  {{sandwich.recipe}} <br>
 
 </div>
 </footer>
-
-
-
-
 </div>
 
 <script type="text/javascript" src="javascript.js"></script>
