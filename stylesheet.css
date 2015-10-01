@@ -46,10 +46,21 @@
 .champPhoto {
 	border-radius: 300px;
 	opacity: 0.8;
-	border: 1px;
+	border-style: solid;
+    border-width: 8px;
+    border-color: #D8E242;	
 
 }
 
+.champPhoto2 {
+	border-radius: 25px;
+	opacity: 0.8;
+	
+	border-style: solid;
+    border-width: 8px;
+    border-color: #D8E242;	
+
+}
 
 .sandwichClass {
 	padding-left: 30px;
@@ -60,7 +71,14 @@
 .trophy {
 	height: 48px;
 	padding-top: 5px;
-	padding-left: 12px;
+	padding-left: 19px;
+}
+
+.questionMark {
+	height: 48px;
+	padding-top: 5px;
+	padding-left: 19px;
+
 }
 
 .sethParent {
@@ -101,3 +119,20 @@
     border-width: 5px;
     border-color: grey;	
 }
+
+.sandwichOTW{
+	text-align: center;
+}
+
+.sandwichOTWpic {
+	text-align: center;
+	border-radius: 10px;
+	border-style: solid;
+    border-width: 2px;
+    border-color: grey;	
+}
+
+.paula {
+	border-radius: 10px;
+}
+
