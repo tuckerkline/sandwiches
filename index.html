@@ -6,8 +6,11 @@
 	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.5/angular.min.js"></script>
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
+  <link rel="shortcut icon" href="images/sandwichlogo.png">
+
+
 </head>
-<body ng-controller = "sandwichController">
+<body ng-controller = "sandwichController" ng-cloak>
 <div class = "main container">
 
 <nav class="navbar navbar-default">
@@ -50,18 +53,25 @@
   <ul ng-repeat = "ingredient in ingredients track by $index" class = 'sandwichList'>
   <li class = 'sandwichList'> {{$index + 1 }}. {{ ingredient }} <button ng-click="removeIngredient($index)">x</button></li>
   </ul>
- 
- 
-  
+
   <br>
   <label for="recipe"><strong>Recipe:</strong></label>
   	<textarea class="form-control" rows="3" placeholder="It's a BLT. With Attitude." ng-model = "recipe"></textarea>
   	</div>
+ 
+  <label for ="pic">Upload a picture with a URL (required):</label>
+  <input ng-model = "picURL" > <button ng-click="uploadPic()">upload</button> <br>
+  <img ng-src="{{ picURL }}" ng-show = "showPic">
+  
+
+<br>
   <button type="submit" ng-click="submit()" class="btn btn-submit">Submit</button>
 </form>
 </div>
 
 <hr>
+
+
 
 <ul ng-repeat = "(sandwichIndex, sandwich) in sandwiches | orderBy: 'name'">
 <li> <h3> {{sandwich.name}} </h3>  <br>
@@ -70,8 +80,10 @@ Ingredients:
 <a href=# ng-click="ingredientSelect(ingredientIndex, sandwichIndex)"><li> -{{ ingredient }} </li></a>
 </ul>
 <br>
-Recipe:  {{sandwich.recipe}} <br>
-<button ng-click="delete($index)" class="x"><i class="fa fa-trash"></i></button>
+Recipe:  {{sandwich.recipe}} <br><br>
+<img class = "sandwichPic" ng-src = "{{ sandwich.pic }}"> <br> <br>
+
+<button ng-click="delete(sandwichIndex)" class="x"><i class="fa fa-trash"></i></button>
 <br>
 <br>
 <strong>Comments:</strong>
@@ -89,12 +101,15 @@ Recipe:  {{sandwich.recipe}} <br>
 </form>
 </li>
 </ul>
+</div>
 
 <div ng-show = "showByIngredient" class = "sandwichPopup">
  All sandwiches with {{ selectedIngredientName }}: <br>
  <ul ng-repeat = "sis in selectedIngredientSandwiches">
- <li> {{ sis.name }} <br>
- {{sis.ingredients}} <br>
+ <li> <h3>{{ sis.name }}</h3> <br>
+ <strong>Ingredients:</strong><br>
+ <ul ng-repeat = "ing in sis.ingredients"><li>{{ing}}</li></ul> <br>
+ <strong>Recipe:</strong> <br>
  {{sis.recipe}}
  </li>
  </ul>

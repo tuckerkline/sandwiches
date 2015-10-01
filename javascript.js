@@ -4,18 +4,23 @@ var sandwichControllerFunc = function($scope) {
 
 	$scope.sandwiches = []
 	$scope.submit = function() {
-		var newSandwich = {}
-		newSandwich.name = $scope.name
-		newSandwich.recipe = $scope.recipe
-		newSandwich.ingredients = $scope.ingredients
-		newSandwich.comments = []
-		$scope.sandwiches.push(newSandwich)
-		$scope.name = undefined
-		$scope.recipe = undefined
-		$scope.ingredients = []
+		if ($scope.picURL) {
+			var newSandwich = {}
+			newSandwich.name = $scope.name
+			newSandwich.recipe = $scope.recipe
+			newSandwich.ingredients = $scope.ingredients
+			newSandwich.comments = []
+			newSandwich.pic = $scope.picURL
+			$scope.sandwiches.push(newSandwich)
+			$scope.name = undefined
+			$scope.recipe = undefined
+			$scope.picURL = undefined
+			$scope.showPic = false
+			$scope.ingredients = []
+		}
 	}
-	$scope.delete = function(index) {
-		$scope.sandwiches.splice(index, 1)
+	$scope.delete = function(sandwichIndex) {
+		$scope.sandwiches.splice(sandwichIndex, 1)
 	}
 
 	$scope.removeIngredient = function(index) {
@@ -29,6 +34,12 @@ var sandwichControllerFunc = function($scope) {
 	        $scope.ingredientName = '';
 	    }
     };
+
+    $scope.showPic = false;
+    $scope.uploadPic = function() {
+    	console.log("hi")
+    	$scope.showPic = true;
+    }
 
 
     $scope.addComment = function(sandwichIndex) {
@@ -53,8 +64,8 @@ var sandwichControllerFunc = function($scope) {
 		   		}
    		}
 
-   		console.log(ingredient)
-   		console.log($scope.selectedIngredientSandwiches)
+   		// console.log(ingredient)
+   		// console.log($scope.selectedIngredientSandwiches)
    		$scope.selectedIngredientName = ingredient
 
    	}
